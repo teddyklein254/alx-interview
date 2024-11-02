@@ -39,7 +39,12 @@ def validUTF8(data):
     return True
 
 # Example usage:
-data1 = [0b01001000, 0b11000010, 0b10000010]  # Valid UTF-8
-data2 = [0b11000010, 0b11000010]  # Invalid UTF-8
-print(validUTF8(data1))  # Output: True
-print(validUTF8(data2))  # Output: False
+if __name__ == "__main__":
+    data = [65]
+    print(validUTF8(data))  # Output: True
+
+    data = [80, 121, 116, 104, 111, 110, 32, 105, 115, 32, 99, 111, 111, 108, 33]
+    print(validUTF8(data))  # Output: True
+
+    data = [229, 65, 127, 256]
+    print(validUTF8(data))  # Output: False
